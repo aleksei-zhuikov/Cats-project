@@ -1,0 +1,29 @@
+.footer {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	box-shadow: 0 0 2px 0 var(--bg-second-color);
+	background-color: var(--bg-main-color);
+}
+
+.footer__container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.copuright {
+	font-size: 13px;
+	color: var(--text-second-color);
+}
+
+.socials {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+}
+
+.socials__link {
+	color: var(--bg-second-color);
+	font-size: 25px;
+}

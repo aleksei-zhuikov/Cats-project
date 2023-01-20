@@ -1,0 +1,10 @@
+/* Стили шрифтов */
+
+@font-face {
+	font-family: "SFProText-Regular";
+	src: url("../fonts/SFProText-Regular.woff2") format("woff2"),
+		url("../fonts/SFProText-Regular.woff") format("woff");
+	font-display: swap;
+	font-weight: 400;
+	font-style: normal;
+}

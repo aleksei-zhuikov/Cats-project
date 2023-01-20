@@ -1,0 +1,46 @@
+/* Общие стили элементов на сайте */
+
+.container {
+	max-width: 1280px;
+	width: 100%;
+	padding: 0 60px;
+	margin: 0 auto;
+	/* background-color: rgb(244, 204, 141); */
+}
+
+body {
+	overflow-anchor: none;
+	margin: 0;
+	font-family: "SFProText-Regular", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+/* прибиваем footer к низу */
+.wrapper {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.main {
+	flex: 1;
+	background-color: rgb(242, 175, 175);
+}
+
+.footer {
+	background-color: rgb(151, 159, 242);
+}
+
+/* Кнопки header popup */
+.btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	padding: 6px 10px;
+	font-size: 18px;
+	gap: 10px;
+	background-color: var(--bg-second-color);
+	color: var(--text-light-color);
+}

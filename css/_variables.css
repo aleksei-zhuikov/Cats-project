@@ -1,0 +1,13 @@
+/* Переменные */
+
+:root {
+	--white-color: #fff;
+	--main-text-color: #000;
+	--bg-main-color: #f8f7f7;
+	--bg-second-color: #191414;
+	--bg-popup-form: #d7d8d9;
+	--text-light-color: #f8f7f7;
+	--text-second-color: #7b8e98;
+	--color-outline: #cfd8dc;
+	--accent-color: #3554ec;
+}

@@ -1,0 +1,13 @@
+/* сюда подключаем все импортируемые файлы css */
+
+@import url(./_normalize.css);
+@import url(./_fonts.css);
+@import url(./_variables.css);
+/* @import url(_vendor.css); */
+@import url(./_globalRes.css);
+@import url(_general.css);
+
+/* components imports */
+@import url(./components/_header.css);
+@import url(./components/_main.css);
+@import url(./components/_footer.css);
