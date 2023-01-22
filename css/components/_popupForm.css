@@ -1,0 +1,95 @@
+.popup__close {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+
+.popup__title {
+	margin: 20px 0;
+}
+
+/* форма */
+
+.form {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+}
+
+.form__input {
+	outline: none;
+	width: 100%;
+	box-sizing: border-box;
+	border: 1px solid var(--color-outline);
+	border-radius: 5px;
+	padding: 8px;
+}
+
+.form__input::placeholder {
+	font-size: 0.8rem;
+}
+
+.form__input:focus {
+	border: 1px solid var(--accent-color);
+}
+
+input,
+textarea {
+	font-size: 13px;
+	color: rgb(0, 0, 0);
+}
+
+.form__image {
+	grid-row: span 3;
+	background-image: url(../../img/cats-foto-2.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.form__textarea {
+	grid-row: span 2;
+	resize: none;
+	height: 100%;
+}
+
+.form__btn {
+	font-size: 14px;
+	width: 100%;
+}
+
+/* Check */
+
+.check {
+	display: flex;
+	align-items: center;
+	position: relative;
+	gap: 10px;
+}
+
+.check__box {
+	font-size: 20px;
+}
+
+.check__title {
+	font-size: 1rem;
+}
+
+.check:hover {
+	cursor: pointer;
+}
+
+.check__input {
+	position: absolute;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.check__input:checked:checked ~ .check__title,
+.check__input:checked:checked ~ .check__box {
+	color: var(--color-favorite);
+}
+.check__input:checked:checked:focus ~ .check__title,
+.check__input:checked:checked:focus ~ .check__box {
+	color: var(--color-favorite-focus);
+}

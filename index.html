@@ -44,5 +44,72 @@
 				</div>
 			</div>
 		</footer>
+		<!-- Popup -->
+		<div class="popup">
+			<div class="popup__container">
+				<h2 class="popup__title">Добавить питомца</h2>
+				<button class="popup__close btn btn-reset">
+					<i class="fa-solid fa-xmark"></i>
+				</button>
+				<form class="form">
+					<div class="form__image"></div>
+					<input
+						type="number"
+						class="form__input"
+						name="id"
+						min="1"
+						required
+						placeholder="id"
+					/>
+					<input
+						type="number"
+						class="form__input"
+						name="age"
+						placeholder="Возраст"
+					/>
+					<input
+						type="text"
+						class="form__input"
+						name="name"
+						required
+						placeholder="Имя"
+					/>
+					<input
+						type="number"
+						class="form__input"
+						name="rate"
+						placeholder="Рейтинг (0-10)"
+						min="0"
+						max="10"
+					/>
+					<textarea
+						name="description"
+						class="form__input form__textarea"
+						placeholder="Описание"
+					></textarea>
+					<label class="check">
+						<input
+							type="checkbox"
+							class="form__chekbox check__input"
+							name="favorite"
+							id=""
+						/>
+						<span class="check__title">Любимчик</span>
+						<span class="check__box">
+							<i class="fa-regular fa-circle-check"></i>
+						</span>
+					</label>
+					<input
+						type="url"
+						class="form__input form__input_img"
+						name="img_link"
+						placeholder="Ссылка на фото"
+					/>
+					<button type="button" class="form__btn btn btn-reset">
+						Добавить котика
+					</button>
+				</form>
+			</div>
+		</div>
 	</body>
 </html>
