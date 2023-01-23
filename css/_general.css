@@ -43,4 +43,13 @@ body {
 	gap: 10px;
 	background-color: var(--bg-second-color);
 	color: var(--text-light-color);
+	transition: linear 0.2s, linear 0.2s, linear 0.2s 0.5s;
+	transition-property: opacity, background-color, visibility;
+}
+
+.btn--hov:hover {
+	background-color: var(--bg-color-btn-hover);
+	color: var(--text-color-btn-hover);
+	transition: linear 0.2s, linear 0.2s, linear 0.2s 0.5s;
+	transition-property: opacity, background-color, visibility;
 }
