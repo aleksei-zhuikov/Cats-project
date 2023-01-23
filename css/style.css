@@ -6,6 +6,7 @@
 /* @import url(_vendor.css); */
 @import url(./_globalRes.css);
 @import url(_general.css);
+@import url(_media.css);
 
 /* components imports */
 @import url(./components/_header.css);

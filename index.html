@@ -1,119 +1,74 @@
 <!DOCTYPE html>
 <html lang="ru">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Cats-project</title>
-		<script
-			src="https://kit.fontawesome.com/3e2b3d0dcf.js"
-			crossorigin="anonymous"
-		></script>
-		<link rel="stylesheet" href="./css/style.css" />
-	</head>
-	<body class="wrapper">
-		<header class="header">
-			<div class="container header__container">
-				<a href="#" class="logo">
-					<i class="fa-solid fa-paw fa-2x"></i>
-					Милые котики
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Cats-project</title>
+	<script src="https://kit.fontawesome.com/3e2b3d0dcf.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="./css/style.css" />
+	<script src="./js/cats.js"></script>
+</head>
+
+<body class="wrapper">
+	<header class="header">
+		<div class="container header__container">
+			<a href="#" class="logo">
+				<i class="fa-solid fa-paw fa-2x"></i>
+				Милые котики
+			</a>
+			<button class="btn btn-reset btn--hov" id="add">
+				<i class="fa-solid fa-plus"></i>
+			</button>
+		</div>
+	</header>
+	<main class="main container"></main>
+	<footer class="footer">
+		<div class="container footer__container">
+			<span class="copuright"> ©2023 Made by &nbsp;&#128520; </span>
+			<div class="socials">
+				<a href="#" class="socials__link">
+					<i class="fa-brands fa-github"></i>
 				</a>
-				<button class="btn btn-reset btn--hov" id="add">
-					<i class="fa-solid fa-plus"></i>
-				</button>
-			</div>
-		</header>
-		<main class="main container">
-			<div class="card">Name</div>
-			<div class="card">Name</div>
-			<div class="card">Name</div>
-			<div class="card">Name</div>
-			<div class="card">Name</div>
-			<div class="card">Name</div>
-		</main>
-		<footer class="footer">
-			<div class="container footer__container">
-				<span class="copuright"> ©2023 Made by &nbsp;&#128520; </span>
-				<div class="socials">
-					<a href="#" class="socials__link">
-						<i class="fa-brands fa-github"></i>
-					</a>
-					<a href="#" class="socials__link">
-						<i class="fa-brands fa-vk"></i>
-					</a>
-					<a href="#" class="socials__link">
-						<i class="fa-brands fa-telegram"></i>
-					</a>
-				</div>
-			</div>
-		</footer>
-		<!-- Popup -->
-		<div class="popup">
-			<div class="popup__container">
-				<h2 class="popup__title">Добавить питомца</h2>
-				<button class="popup__close btn btn-reset btn--hov">
-					<i class="fa-solid fa-xmark"></i>
-				</button>
-				<form class="form">
-					<div class="form__image"></div>
-					<input
-						type="number"
-						class="form__input"
-						name="id"
-						min="1"
-						required
-						placeholder="id"
-					/>
-					<input
-						type="number"
-						class="form__input"
-						name="age"
-						placeholder="Возраст"
-					/>
-					<input
-						type="text"
-						class="form__input"
-						name="name"
-						required
-						placeholder="Имя"
-					/>
-					<input
-						type="number"
-						class="form__input"
-						name="rate"
-						placeholder="Рейтинг (0-10)"
-						min="0"
-						max="10"
-					/>
-					<textarea
-						name="description"
-						class="form__input form__textarea"
-						placeholder="Описание"
-					></textarea>
-					<label class="check">
-						<input
-							type="checkbox"
-							class="form__chekbox check__input"
-							name="favorite"
-							id=""
-						/>
-						<span class="check__title">Любимчик</span>
-						<span class="check__box">
-							<i class="fa-regular fa-circle-check"></i>
-						</span>
-					</label>
-					<input
-						type="url"
-						class="form__input form__input_img"
-						name="img_link"
-						placeholder="Ссылка на фото"
-					/>
-					<button type="button" class="form__btn btn btn-reset">
-						Добавить котика
-					</button>
-				</form>
+				<a href="#" class="socials__link">
+					<i class="fa-brands fa-vk"></i>
+				</a>
+				<a href="#" class="socials__link">
+					<i class="fa-brands fa-telegram"></i>
+				</a>
 			</div>
 		</div>
-		<script src="./js/main.js"></script>
-	</body>
+	</footer>
+	<!-- Popup -->
+	<div class="popup">
+		<div class="popup__container">
+			<h2 class="popup__title">Добавить питомца</h2>
+			<button class="popup__close btn btn-reset btn--hov">
+				<i class="fa-solid fa-xmark"></i>
+			</button>
+			<form class="form">
+				<div class="form__image"></div>
+				<input type="number" class="form__input" name="id" min="1" required placeholder="id" />
+				<input type="number" class="form__input" name="age" placeholder="Возраст" />
+				<input type="text" class="form__input" name="name" required placeholder="Имя" />
+				<input type="number" class="form__input" name="rate" placeholder="Рейтинг (0-10)" min="0" max="10" />
+				<textarea name="description" class="form__input form__textarea" placeholder="Описание"></textarea>
+				<label class="check">
+					<input type="checkbox" class="form__chekbox check__input" name="favorite" id="" />
+					<span class="check__title">Любимчик</span>
+					<span class="check__box">
+						<i class="fa-regular fa-circle-check"></i>
+					</span>
+				</label>
+				<input type="url" class="form__input form__input_img" name="img_link" placeholder="Ссылка на фото" />
+				<button type="submit" class="form__btn btn btn-reset">
+					Добавить котика
+				</button>
+			</form>
+		</div>
+	</div>
+	<script src="./js/main.js"></script>
+</body>
+
 </html>
