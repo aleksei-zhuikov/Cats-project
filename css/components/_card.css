@@ -1,0 +1,33 @@
+.card {
+	background-color: tomato;
+	padding: 20px;
+	text-align: center;
+	background: url(../../img/cats-default-2.jpeg) no-repeat center / cover;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.card > * {
+	position: relative;
+	z-index: 2;
+}
+.card::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #fff8;
+	backdrop-filter: blur(2px);
+	transition: backdrop-filter 0.3s linear;
+}
+.card:hover::before {
+	backdrop-filter: blur(0);
+}
