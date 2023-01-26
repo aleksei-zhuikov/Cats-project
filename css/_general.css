@@ -42,21 +42,30 @@ body {
 	gap: 10px;
 	background-color: var(--bg-second-color);
 	color: var(--text-light-color);
-	transition: linear 0.2s, linear 0.2s, linear 0.2s 0.5s;
-	transition-property: background-color;
+	transition: linear 0.3s, linear 0.3s, 0.5s;
+	transition-property: background-color, color;
 }
 
-.btn--hov:hover {
+.btn-close:hover {
 	background-color: var(--bg-color-btn-hover);
 	color: var(--text-color-btn-hover);
-	transition: linear 0.2s, linear 0.2s, linear 0.2s 0.5s;
-	transition-property: background-color;
+	transition: linear 0.3s, linear 0.3s, 0.5s;
+	transition-property: background-color, color;
 }
 
-.btn--hov-addCat:hover {
+.form__btn {
+
+	transition-property: background-color, color, transform;
+	transition-timing-function: linear;
+	transition-duration: 0.2s;
+}
+
+.form__btn:hover {
 	background-color: var(--bg-color-btnAddCat-hover);
 	color: var(--text-color-btnAddCat-hover);
-	transition: linear 0.2s, linear 0.2s, linear 0.2s 0.5s;
-	transition-property: background-color, color;
+	transform: scale(108%);
+	transition-property: background-color, color, transform;
+	transition-timing-function: linear;
+	transition-duration: 0.2s;
 
 }
