@@ -9,15 +9,17 @@
 	z-index: 10;
 	visibility: hidden;
 	opacity: 0;
-	transition: linear 0.2s, linear 0.2s, linear 0.2s 0.5s;
 	transition-property: opacity, background-color, visibility;
+	transition-timing-function: linear;
+	transition-duration: 0.7s;
 }
 
 .popup_active {
 	opacity: 1;
 	visibility: visible;
-	transition: linear 0.2s, linear 0.2s;
-	transition-property: opacity, background-color;
+	transition-property: opacity, background-color, visibility;
+	transition-timing-function: linear;
+	transition-duration: 0.7s;
 }
 
 .popup__container {
