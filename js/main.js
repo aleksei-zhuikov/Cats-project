@@ -1,5 +1,5 @@
-/** добавляем котов динамически */
 let main = document.querySelector("main");
+
 
 /** Добавляем динамически котов через функцию  */
 const updCards = function (data) {
@@ -14,7 +14,6 @@ const updCards = function (data) {
 			console.log('cat =>', cat)
 		}
 	});
-
 	/** Задаем ширину карточек */
 	let cards = document.getElementsByClassName("card");
 	for (let i = 0, cnt = cards.length; i < cnt; i++) {
@@ -22,7 +21,7 @@ const updCards = function (data) {
 		cards[i].style.height = width * 0.6 + "px";
 	}
 
-}
+};
 updCards(cats)
 
 let form = document.querySelector('.form');
@@ -57,9 +56,6 @@ form.addEventListener("submit", e => {
 
 })
 
-
-
-
 /** Открываем закрываем popup */
 
 const addBtnEl = document.getElementById("add"),
@@ -88,8 +84,6 @@ function clearFormAddCat() {
 	const formAddCat = document.querySelector('#form');
 	formAddCat.reset();
 }
-
-
 
 
 

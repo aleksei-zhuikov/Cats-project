@@ -43,12 +43,20 @@ body {
 	background-color: var(--bg-second-color);
 	color: var(--text-light-color);
 	transition: linear 0.2s, linear 0.2s, linear 0.2s 0.5s;
-	transition-property: opacity, background-color, visibility;
+	transition-property: background-color;
 }
 
 .btn--hov:hover {
 	background-color: var(--bg-color-btn-hover);
 	color: var(--text-color-btn-hover);
 	transition: linear 0.2s, linear 0.2s, linear 0.2s 0.5s;
-	transition-property: opacity, background-color, visibility;
+	transition-property: background-color;
+}
+
+.btn--hov-addCat:hover {
+	background-color: var(--bg-color-btnAddCat-hover);
+	color: var(--text-color-btnAddCat-hover);
+	transition: linear 0.2s, linear 0.2s, linear 0.2s 0.5s;
+	transition-property: background-color, color;
+
 }
