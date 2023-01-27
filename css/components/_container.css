@@ -1,0 +1,13 @@
+.container {
+	max-width: 1280px;
+	width: 100%;
+	padding: 0 60px;
+	margin: 0 auto;
+	/* background-color: rgb(244, 204, 141); */
+}
+
+@media (max-width: 500px) {
+	.container {
+		padding: 0 16px;
+	}
+}

@@ -16,14 +16,15 @@ const updCards = function (data) {
 			main.innerHTML += card;
 			// console.log('cat =>', cat)
 		}
-
 	});
+
 	/** Задаем ширину карточек */
 	let cards = document.getElementsByClassName("card");
 	for (let i = 0, cnt = cards.length; i < cnt; i++) {
 		const width = cards[i].offsetWidth;
 		cards[i].style.height = width * 0.6 + "px";
 	}
+
 };
 
 /** функция в которую передаем наш api */
@@ -32,10 +33,9 @@ const getCats = function (api) {
 		.getCats()
 		.then((res) => res.json())
 		.then((data) => {
-			console.log('data from getCats.Then', data)
+			console.log('data from getCats.Then >>', data)
 			if (data.message === 'ok') {
 				updCards(data.data)
-
 			}
 		})
 
@@ -71,10 +71,6 @@ form.addEventListener("submit", e => {
 		}
 	}
 	console.log('result body >>', body)
-	// cats.push(body)
-	// updCards(cats)
-	// closeFormAfterAddCat()
-	// clearFormAddCat()
 
 	/** Рбота с Api */
 	api
@@ -84,6 +80,7 @@ form.addEventListener("submit", e => {
 			if (data.message === 'ok') {
 				form.reset()
 				closePopupFormEl.click()
+				getCats(api);
 
 			} else {
 				console.log('from work with api else >> ', data)
@@ -113,16 +110,7 @@ closePopupFormEl.addEventListener("click", function (event) {
 
 });
 
-/** функция закрытия формы добавления кота */
-function closeFormAfterAddCat() {
-	popupEL.classList.remove("popup_active");
-}
 
-/** функция очищает форму */
-function clearFormAddCat() {
-	const formAddCat = document.querySelector('#form');
-	formAddCat.reset();
-}
 
 
 
