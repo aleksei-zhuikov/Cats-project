@@ -10,12 +10,13 @@ const updCards = function (data) {
 	data.forEach(function (cat) {
 		if (cat.id) {
 			let card = `<div class="${cat.favourite ? "card like" : "card"}"
-			style="background-image: url(${cat.img_link || "../../img/cats-default-2.jpeg"})">
+			style="background-image: url(${cat.img_link || "../img/cats-default-2.jpeg"})">
 				<span>${cat.name}</span>
 				</div>`;
 			main.innerHTML += card;
 			console.log('cat =>', cat)
 		}
+
 	});
 	/** Задаем ширину карточек */
 	let cards = document.getElementsByClassName("card");
