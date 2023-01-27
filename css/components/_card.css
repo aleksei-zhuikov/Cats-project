@@ -13,10 +13,11 @@
 	cursor: pointer;
 }
 
-.card > * {
+.card>* {
 	position: relative;
 	z-index: 2;
 }
+
 .card::before {
 	content: "";
 	position: absolute;
@@ -28,6 +29,7 @@
 	backdrop-filter: blur(2px);
 	transition: backdrop-filter 0.3s linear;
 }
+
 .card:hover::before {
 	backdrop-filter: blur(0);
 }

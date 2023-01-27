@@ -31,3 +31,14 @@
 	-moz-box-shadow: 3px 3px 2px 2px rgba(14, 14, 14, 0.51);
 	box-shadow: 3px 3px 2px 2px rgba(14, 14, 14, 0.51);
 }
+
+
+/* @media (min-width: 768px) {
+	.popup {
+		padding: 30px;
+	}
+
+	form {
+		grid-template-columns: repeat(3, 1fr);
+	}
+} */
