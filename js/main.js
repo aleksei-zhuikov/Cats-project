@@ -1,16 +1,20 @@
 let main = document.querySelector("main");
 
+/** создаем экземпляр класса */
+const api = new Api("aleksei-zhuikov");
+
 /** Добавляем динамически котов через функцию  */
 const updCards = function (data) {
 	main.innerHTML = "";
 	data.forEach(function (cat) {
+		// console.log('cat from updCards =>', cat)
 		if (cat.id) {
 			let card = `<div class="${cat.favourite ? "card like" : "card"}"
 			style="background-image: url(${cat.img_link || "img/cats-default-2.jpeg"})">
 				<span>${cat.name}</span>
 				</div>`;
 			main.innerHTML += card;
-			console.log('cat =>', cat)
+			// console.log('cat =>', cat)
 		}
 
 	});
@@ -20,10 +24,25 @@ const updCards = function (data) {
 		const width = cards[i].offsetWidth;
 		cards[i].style.height = width * 0.6 + "px";
 	}
-
 };
-updCards(cats)
 
+/** функция в которую передаем наш api */
+const getCats = function (api) {
+	api
+		.getCats()
+		.then((res) => res.json())
+		.then((data) => {
+			console.log('data from getCats.Then', data)
+			if (data.message === 'ok') {
+				updCards(data.data)
+
+			}
+		})
+
+}
+getCats(api);
+
+/** берем форму добавления котиков поле адрес фото кота */
 let form = document.querySelector('.form');
 form.img_link.addEventListener("change", (e) => {
 	form.firstElementChild.style.backgroundImage = `url(${e.target.value})`
@@ -32,6 +51,8 @@ form.img_link.addEventListener("input", (e) => {
 
 	form.firstElementChild.style.backgroundImage = `url(${e.target.value})`
 })
+
+
 
 /** hendler на форме popup добавления котов */
 form.addEventListener("submit", e => {
@@ -49,10 +70,29 @@ form.addEventListener("submit", e => {
 			}
 		}
 	}
-	cats.push(body)
-	updCards(cats)
-	closeFormAfterAddCat()
-	clearFormAddCat()
+	console.log('result body >>', body)
+	// cats.push(body)
+	// updCards(cats)
+	// closeFormAfterAddCat()
+	// clearFormAddCat()
+
+	/** Рбота с Api */
+	api
+		.addCat(body)
+		.then((res) => res.json())
+		.then((data) => {
+			if (data.status === 'ok') {
+				// form.reset()
+				// closeFormAfterAddCat()
+				// updCards(cats)
+				closeFormAfterAddCat()
+				clearFormAddCat()
+
+			} else {
+				console.log('from work with api else >> ', data)
+			}
+		})
+
 
 })
 
@@ -76,6 +116,7 @@ closePopupFormEl.addEventListener("click", function (event) {
 
 });
 
+/** функция закрытия формы добавления кота */
 function closeFormAfterAddCat() {
 	popupEL.classList.remove("popup_active");
 }
@@ -85,6 +126,12 @@ function clearFormAddCat() {
 	const formAddCat = document.querySelector('#form');
 	formAddCat.reset();
 }
+
+
+
+
+
+
 
 
 
