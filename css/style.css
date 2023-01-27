@@ -1,17 +1,17 @@
 /* сюда подключаем все импортируемые файлы css */
 
-@import url(./_normalize.css);
-@import url(./_fonts.css);
-@import url(./_variables.css);
-/* @import url(_vendor.css); */
-@import url(./_globalRes.css);
-@import url(./_general.css);
-@import url(./_media.css);
+@import "./_normalize.css";
+@import "./_fonts.css";
+@import "./_variables.css";
+/* @import _vendor.css"; */
+@import "./_globalRes.css";
+@import "./_general.css";
+@import "./_media.css";
 
 /* components imports */
-@import url(./components/_header.css);
-@import url(./components/_main.css);
-@import url(./components/_footer.css);
-@import url(./components/_popup.css);
-@import url(./components/_popupForm.css);
-@import url(./components/_card.css);
+@import "./components/_header.css";
+@import "./components/_main.css";
+@import "./components/_footer.css";
+@import "./components/_popup.css";
+@import "./components/_popupForm.css";
+@import "./components/_card.css";

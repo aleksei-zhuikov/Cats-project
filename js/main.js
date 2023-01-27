@@ -1,7 +1,7 @@
 let main = document.querySelector("main");
 
 /** Создаем экземпляр класса */
-const api = new Api("aleksei-zhuikov"); // мое уникальное имя в базе данных
+// const api = new Api("aleksei-zhuikov"); // мое уникальное имя в базе данных
 
 
 /** Добавляем динамически котов через функцию  */
