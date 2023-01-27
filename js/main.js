@@ -1,9 +1,5 @@
 let main = document.querySelector("main");
 
-/** Создаем экземпляр класса */
-// const api = new Api("aleksei-zhuikov"); // мое уникальное имя в базе данных
-
-
 /** Добавляем динамически котов через функцию  */
 const updCards = function (data) {
 	main.innerHTML = "";
@@ -84,6 +80,7 @@ function closeFormAfterAddCat() {
 	popupEL.classList.remove("popup_active");
 }
 
+/** функция очищает форму */
 function clearFormAddCat() {
 	const formAddCat = document.querySelector('#form');
 	formAddCat.reset();
