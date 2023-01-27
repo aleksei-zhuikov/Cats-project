@@ -20,23 +20,6 @@ const updCards = function (data) {
 		const width = cards[i].offsetWidth;
 		cards[i].style.height = width * 0.6 + "px";
 	}
-<<<<<<< HEAD
-=======
-
-};
-
-/** функция в которую передаем наш api */
-const getCats = function (api) {
-	api
-		.getCats()
-		.then((res) => res.json())
-		.then((data) => {
-			console.log('data from getCats.Then >>', data)
-			if (data.message === 'ok') {
-				updCards(data.data)
-			}
-		})
->>>>>>> b48f185 (edit css components)
 
 };
 updCards(cats)
@@ -66,30 +49,10 @@ form.addEventListener("submit", e => {
 			}
 		}
 	}
-<<<<<<< HEAD
 	cats.push(body)
 	updCards(cats)
 	closeFormAfterAddCat()
-	clearFormAddCat()
-=======
-	console.log('result body >>', body)
-
-	/** Рбота с Api */
-	api
-		.addCat(body)
-		.then((res) => res.json())
-		.then((data) => {
-			if (data.message === 'ok') {
-				form.reset()
-				closePopupFormEl.click()
-				getCats(api);
-
-			} else {
-				console.log('from work with api else >> ', data)
-			}
-		})
-
->>>>>>> b48f185 (edit css components)
+	form.reset()
 
 })
 
@@ -113,12 +76,9 @@ closePopupFormEl.addEventListener("click", function (event) {
 
 });
 
-<<<<<<< HEAD
 function closeFormAfterAddCat() {
 	popupEL.classList.remove("popup_active");
 }
-=======
->>>>>>> b48f185 (edit css components)
 
 
 
