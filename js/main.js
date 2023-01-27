@@ -81,12 +81,9 @@ form.addEventListener("submit", e => {
 		.addCat(body)
 		.then((res) => res.json())
 		.then((data) => {
-			if (data.status === 'ok') {
-				// form.reset()
-				// closeFormAfterAddCat()
-				// updCards(cats)
-				closeFormAfterAddCat()
-				clearFormAddCat()
+			if (data.message === 'ok') {
+				form.reset()
+				closePopupFormEl.click()
 
 			} else {
 				console.log('from work with api else >> ', data)
