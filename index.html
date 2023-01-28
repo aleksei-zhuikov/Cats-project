@@ -19,9 +19,12 @@
 				<i class="fa-solid fa-paw fa-2x"></i>
 				Милые котики
 			</a>
-			<button class="btn btn-reset btn-close" id="add">
-				<i class="fa-solid fa-plus"></i>
-			</button>
+			<div class="header__box-btn">
+				<button class="btn btn-enter btn-reset" id="btn-enter">Вход</button>
+				<button class="btn btn-reset btn-close" id="add">
+					<i class="fa-solid fa-plus"></i>
+				</button>
+			</div>
 		</div>
 	</header>
 	<main class="main container"></main>
@@ -65,6 +68,27 @@
 				<input type="url" class="form__input form__input_img" name="img_link" placeholder="Ссылка на фото" />
 				<button type="submit" class="form__btn btn btn-reset">
 					Добавить котика
+				</button>
+			</form>
+		</div>
+	</div>
+
+	<!-- Forma LogIn -->
+	<div class="popup">
+		<div class="popup-container_form-login">
+			<h2 class="popup__title">Войти</h2>
+			<button class="popup__close btn btn-reset btn-close btn-close_login">
+				<i class="fa-solid fa-xmark"></i>
+			</button>
+			<form class="form-login" id="form-login">
+				<label class="form-login__label">Имя<sup>&#42;</sup>
+					<input type="text" class="form-login__input" name="username" value="" required />
+				</label>
+				<label class="form-login__label">Адрес электронной почты<sup>&#42;</sup>
+					<input type="email" class="form-login__input" name="email" autocomplete="email" value="" required />
+				</label>
+				<button type="submit" class="form-login__btn btn btn-reset">
+					Войти
 				</button>
 			</form>
 		</div>

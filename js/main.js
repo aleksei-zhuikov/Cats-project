@@ -98,7 +98,7 @@ const addBtnEl = document.getElementById("add"),
 	btnFormAddCat = document.querySelector(".form__btn");
 
 addBtnEl.addEventListener("click", function (event) {
-	event.preventDefault();
+	// event.preventDefault();
 
 	if (!popupEL.classList.contains("popup_active")) {
 		popupEL.classList.add("popup_active");
@@ -109,6 +109,33 @@ closePopupFormEl.addEventListener("click", function (event) {
 	popupEL.classList.remove("popup_active");
 
 });
+
+/** Открываем форму входа */
+
+const btnEnter = document.querySelector('#btn-enter');
+const formLogin = document.querySelector('#form-login');
+const closeFormLogin = document.querySelector('.btn-close_login')
+
+btnEnter.addEventListener('click', function (evt) {
+	// ищем ближайшего предка, подходящего под указанный CSS-селектор
+	// и сохраняем его в переменную.
+	const elPopup = formLogin.closest(".popup")
+
+	if (!elPopup.classList.contains("popup_active")) {
+		elPopup.classList.add("popup_active")
+	}
+})
+
+/** закрываем форму входа */
+closeFormLogin.addEventListener('click', function () {
+	const elPopup = formLogin.closest(".popup")
+	if (elPopup.classList.contains('popup_active')) {
+		elPopup.classList.remove("popup_active")
+	}
+})
+
+
+
 
 
 

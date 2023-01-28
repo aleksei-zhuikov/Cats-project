@@ -5,7 +5,7 @@
 	justify-content: center;
 	border-radius: 10px;
 	padding: 6px 10px;
-	font-size: 18px;
+	/* font-size: 18px; */
 	gap: 10px;
 	background-color: var(--bg-second-color);
 	color: var(--text-light-color);
@@ -35,4 +35,46 @@
 	transition-timing-function: linear;
 	transition-duration: 0.2s;
 
+}
+
+/* кнопка Вход */
+.btn-enter {
+	font-size: 0.9rem;
+	border-radius: 50px;
+	background-color: var(--bg-second-color);
+	color: var(--bg-main-color);
+	padding: 6px 18px;
+	cursor: pointer;
+	transition-property: background-color, color;
+	transition-timing-function: linear;
+	transition-duration: 0.4s;
+
+}
+
+.btn-enter:hover {
+	background-color: var(--bg-color-btn-login);
+	transition-property: background-color, color;
+	transition-timing-function: linear;
+	transition-duration: 0.3s;
+}
+
+/* кнопка войти в форме входа */
+.form-login__btn {
+	padding: 12px 42px;
+	margin-top: 30px;
+	min-width: 100px;
+	max-width: 250px;
+	word-wrap: normal;
+	word-break: break-all;
+	transition-property: background-color;
+	transition-timing-function: ease-in-out;
+	transition-duration: 0.2s;
+
+}
+
+.form-login__btn:hover {
+	background-color: var(--bg-color-btnAddCat-hover);
+	transition-property: background-color;
+	transition-timing-function: ease-in-out;
+	transition-duration: 0.2s;
 }

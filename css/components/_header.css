@@ -16,3 +16,12 @@
 	align-items: center;
 	gap: 10px;
 }
+
+/* блок кнопок вход и добавить котика */
+.header__box-btn {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+	gap: 10px;
+}
