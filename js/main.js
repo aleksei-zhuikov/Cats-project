@@ -27,23 +27,39 @@ const updCards = function (data) {
 
 };
 
-/** функция в которую передаем наш api */
-const getCats = function (api) {
-	api
-		.getCats()
-		.then((res) => res.json())
-		.then((data) => {
-			console.log('data from getCats.Then >>', data)
-			if (data.message === 'ok') {
-				updCards(data.data)
-			}
-		})
+/** Проверяем LocalStorage и Добавляем котов из api   */
 
+let catsData = localStorage.getItem('cats');
+catsData = catsData ? JSON.parse(catsData) : [];
+const getCats = function (api, store) {
+
+	if (!store.length) { // если массив котов в LS пустой
+		api							// делаем запрос на сервер
+			.getCats()
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+				if (data.message === 'ok') {  // если запрос с сервиса статус 'ok'
+					localStorage.setItem('cats', JSON.stringify(data.data)); // записываем в LS полученных котов по ключу cats
+					catsData = [...data.data]; // и полученный массив копируем в нашу переменную
+					updCards(data.data)
+				}
+			});
+	} else {
+		updCards(store)
+	}
 }
-getCats(api);
+getCats(api, catsData);
 
-/** берем форму добавления котиков поле адрес фото кота */
+/** переменные */
+const addBtnEl = document.getElementById("add");
+const popupEL = document.querySelector(".popup");
+const closePopupFormEl = document.querySelector(".popup__close");
+const btnFormAddCat = document.querySelector(".form__btn");
 let form = document.querySelector('.form');
+
+/** берем форму добавления котиков работаем с полем адрес фото кота */
+
 form.img_link.addEventListener("change", (e) => {
 	form.firstElementChild.style.backgroundImage = `url(${e.target.value})`
 })
@@ -51,8 +67,6 @@ form.img_link.addEventListener("input", (e) => {
 
 	form.firstElementChild.style.backgroundImage = `url(${e.target.value})`
 })
-
-
 
 /** hendler на форме popup добавления котов */
 form.addEventListener("submit", e => {
@@ -72,30 +86,35 @@ form.addEventListener("submit", e => {
 	}
 	console.log('result body >>', body)
 
-	/** Рбота с Api */
-	api
-		.addCat(body)
-		.then((res) => res.json())
-		.then((data) => {
-			if (data.message === 'ok') {
-				form.reset()
-				closePopupFormEl.click()
-				getCats(api);
+	/** Рбота с Api при добавлении*/
+	api.addCat(body)
+		.then(res => res.json())
+		.then(data => {
+			if (data.message === "ok") {
+				form.reset();
+				closePopupFormEl.click();
+				api.getCat(body.id)
+					.then(res => res.json())
+					.then(cat => {
+						if (cat.message === "ok") {
+							catsData.push(cat.data);
+							localStorage.setItem("cats", JSON.stringify(catsData));
 
+							getCats(api, catsData);
+						} else {
+							console.log(cat);
+						}
+					})
 			} else {
-				console.log('from work with api else >> ', data)
+				console.log(data);
+				api.getIds()
+					.then(r => r.json())
+					.then(d => console.log(d));
 			}
 		})
-
-
-})
+});
 
 /** Открываем закрываем popup */
-
-const addBtnEl = document.getElementById("add"),
-	popupEL = document.querySelector(".popup"),
-	closePopupFormEl = document.querySelector(".popup__close"),
-	btnFormAddCat = document.querySelector(".form__btn");
 
 addBtnEl.addEventListener("click", function (event) {
 	event.preventDefault();
