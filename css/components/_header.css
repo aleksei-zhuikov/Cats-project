@@ -22,6 +22,35 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	flex-wrap: nowrap;
-	gap: 10px;
+	/* flex-wrap: nowrap; */
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+@media (max-width: 600px) {
+
+	.header__container {
+		flex-wrap: wrap;
+	}
+
+	.header__box-btn {
+		margin-left: auto;
+	}
+
+	.logo {
+		margin-right: 20px;
+	}
+
+}
+
+.user__hello {
+	font-size: 0.9rem;
+	color: var(--text-color-login);
+}
+
+.user__unlog {
+	padding: 5px;
+	border-radius: 5px;
+	color: var(--text-color-not-login);
+	/* background-color: #000; */
 }

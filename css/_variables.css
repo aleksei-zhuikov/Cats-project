@@ -17,4 +17,9 @@
 	--bg-color-btnAddCat-hover: rgb(32, 117, 32);
 	--text-color-btnAddCat-hover: rgb(217, 216, 216);
 	--bg-color-btn-login: #696b70;
+	--bg-color-not-login: rgb(234, 219, 13);
+	--text-color-not-login: rgb(194, 9, 9);
+	--text-color-login: rgb(55, 167, 98);
+	;
+	;
 }

@@ -132,7 +132,43 @@ closeFormLogin.addEventListener('click', function () {
 	if (elPopup.classList.contains('popup_active')) {
 		elPopup.classList.remove("popup_active")
 	}
+	formLogin.reset()
 })
+
+/** Работа с куки */
+
+const btnEntryFormLogin = document.querySelector('#btn-form-login');
+
+btnEntryFormLogin.addEventListener('click', function (evt) {
+	evt.preventDefault()
+
+	userName = document.querySelector('input[name = "username"]').value;
+	userEmail = document.querySelector('input[name = "email"]').value;
+
+	document.cookie = `userName=${userName};max-age=86400;path=/;`
+	document.cookie = `userEmail=${userEmail};path=/`
+
+
+	/** проверяем установились ли куки с нужным значением */
+	if (document.cookie.split(';').filter((item) => item.includes(`userName=${userName}`)).length) {
+		console.log(`The cookie "reader" has ${userName} for value`)
+		addBtnEl.classList.remove("visually-hidden")
+	}
+
+	helloUser(userName)
+
+	closeFormLogin.click()
+	formLogin.reset()
+
+})
+
+/** выводим имя пользователя после авторизации */
+function helloUser(name) {
+	let helloUserName = document.querySelector('.user__hello');
+	helloUserName.classList.remove('user__unlog');
+	helloUserName.innerHTML = `Привет, ${name}`;
+
+}
 
 
 

@@ -7,7 +7,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Cats-project</title>
 	<script src="https://kit.fontawesome.com/3e2b3d0dcf.js" crossorigin="anonymous"></script>
-	<script src="./js/cats.js"></script>
 	<script src="./js/api.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
@@ -20,8 +19,9 @@
 				Милые котики
 			</a>
 			<div class="header__box-btn">
+				<div class="user__hello user__unlog">Выполните вход</div>
 				<button class="btn btn-enter btn-reset" id="btn-enter">Вход</button>
-				<button class="btn btn-reset btn-close" id="add">
+				<button class="btn btn-reset btn-close visually-hidden" id="add">
 					<i class="fa-solid fa-plus"></i>
 				</button>
 			</div>
@@ -87,7 +87,7 @@
 				<label class="form-login__label">Адрес электронной почты<sup>&#42;</sup>
 					<input type="email" class="form-login__input" name="email" autocomplete="email" value="" required />
 				</label>
-				<button type="submit" class="form-login__btn btn btn-reset">
+				<button type="submit" id="btn-form-login" class="form-login__btn btn btn-reset">
 					Войти
 				</button>
 			</form>
