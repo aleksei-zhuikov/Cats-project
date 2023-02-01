@@ -85,11 +85,12 @@ textarea {
 	appearance: none;
 }
 
-.check__input:checked:checked ~ .check__title,
-.check__input:checked:checked ~ .check__box {
+.check__input:checked:checked~.check__title,
+.check__input:checked:checked~.check__box {
 	color: var(--color-favorite);
 }
-.check__input:checked:checked:focus ~ .check__title,
-.check__input:checked:checked:focus ~ .check__box {
+
+.check__input:checked:checked:focus~.check__title,
+.check__input:checked:checked:focus~.check__box {
 	color: var(--color-favorite-focus);
 }

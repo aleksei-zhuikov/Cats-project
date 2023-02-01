@@ -6,7 +6,7 @@
 	/* background-color: rgb(244, 204, 141); */
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
 	.container {
 		padding: 0 16px;
 	}
