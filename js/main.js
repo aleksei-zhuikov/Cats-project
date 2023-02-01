@@ -92,10 +92,10 @@ form.addEventListener("submit", e => {
 
 /** Открываем закрываем popup */
 
-const addBtnEl = document.getElementById("add"),
-	popupEL = document.querySelector(".popup"),
-	closePopupFormEl = document.querySelector(".popup__close"),
-	btnFormAddCat = document.querySelector(".form__btn");
+const addBtnEl = document.getElementById("add");
+const popupEL = document.querySelector(".popup");
+const closePopupFormEl = document.querySelector(".popup__close");
+const btnFormAddCat = document.querySelector(".form__btn");
 
 addBtnEl.addEventListener("click", function (event) {
 	// event.preventDefault();
@@ -137,38 +137,76 @@ closeFormLogin.addEventListener('click', function () {
 
 /** Работа с куки */
 
+/** добавляем куки */
+
 const btnEntryFormLogin = document.querySelector('#btn-form-login');
+const logOut = document.querySelector('.user__unlog');
+let defaultHelloTxtEL = document.querySelector('.user__hello');
+const defaultHello = 'Выполните вход';
+
+defaultHelloTxtEL.innerHTML = defaultHello;
+let userName = '';
+let userEmail = '';
 
 btnEntryFormLogin.addEventListener('click', function (evt) {
 	evt.preventDefault()
 
+	/** добавляем куки в переменные */
 	userName = document.querySelector('input[name = "username"]').value;
 	userEmail = document.querySelector('input[name = "email"]').value;
 
-	document.cookie = `userName=${userName};max-age=86400;path=/;`
-	document.cookie = `userEmail=${userEmail};path=/`
+	document.cookie = `userName=${userName};max-age=86400;path=/`
+	document.cookie = `userEmail=${userEmail};max-age=86400;path=/`
 
 
 	/** проверяем установились ли куки с нужным значением */
 	if (document.cookie.split(';').filter((item) => item.includes(`userName=${userName}`)).length) {
 		console.log(`The cookie "reader" has ${userName} for value`)
 		addBtnEl.classList.remove("visually-hidden")
+		helloUser(userName)
 	}
 
-	helloUser(userName)
-
-	closeFormLogin.click()
-	formLogin.reset()
 
 })
 
 /** выводим имя пользователя после авторизации */
 function helloUser(name) {
 	let helloUserName = document.querySelector('.user__hello');
-	helloUserName.classList.remove('user__unlog');
-	helloUserName.innerHTML = `Привет, ${name}`;
+	helloUserName.classList.remove('user__nolog');
+	defaultHelloTxtEL.innerHTML = `Привет, ${name}`;
+
+	btnEnter.classList.add('visually-hidden');
+	logOut.classList.remove('visually-hidden');
+
+	closeFormLogin.click()
+	formLogin.reset()
+
 
 }
+
+/** удаляем имя пользователя после выхода */
+function byeUser() {
+	let helloUserName = document.querySelector('.user__hello');
+	helloUserName.classList.add('user__nolog');
+	defaultHelloTxtEL.innerHTML = defaultHello;
+	btnEnter.classList.remove('visually-hidden');
+	logOut.classList.add('visually-hidden');
+	addBtnEl.classList.add("visually-hidden");
+
+}
+
+/** убираем кнопку вход и добавляем текст выход */
+logOut.addEventListener('click', function () {
+
+	document.cookie = `userName=;expires = ${new Date(0)};path=/`
+	document.cookie = `userEmail=;expires = ${new Date(0)};path=/`
+
+	if (document.cookie = 'userName' !== userName) {
+
+		byeUser()
+	}
+
+})
 
 
 

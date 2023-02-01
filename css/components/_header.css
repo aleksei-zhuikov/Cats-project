@@ -48,9 +48,29 @@
 	color: var(--text-color-login);
 }
 
-.user__unlog {
+.user__nolog {
 	padding: 5px;
 	border-radius: 5px;
 	color: var(--text-color-not-login);
 	/* background-color: #000; */
+}
+
+.user__unlog {
+	box-sizing: content-box;
+	font-size: 0.9rem;
+	border: none;
+	border-bottom: 1px solid;
+	border-color: var(--main-text-color);
+	transition-property: border-color, color;
+	transition-timing-function: linear;
+	transition-duration: 0.2s;
+	cursor: pointer;
+}
+
+.user__unlog:hover {
+	color: var(--text-color-not-login);
+	border-color: var(--text-color-not-login);
+	transition-property: border-color, color;
+	transition-timing-function: linear;
+	transition-duration: 0.2s;
 }
