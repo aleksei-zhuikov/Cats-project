@@ -1,16 +1,20 @@
 let main = document.querySelector("main");
 
+/** создаем экземпляр класса */
+const api = new Api("aleksei-zhuikov");
+
 /** Добавляем динамически котов через функцию  */
 const updCards = function (data) {
 	main.innerHTML = "";
 	data.forEach(function (cat) {
+		// console.log('cat from updCards =>', cat)
 		if (cat.id) {
 			let card = `<div class="${cat.favourite ? "card like" : "card"}"
 			style="background-image: url(${cat.img_link || "img/cats-default-2.jpeg"})">
 				<span>${cat.name}</span>
 				</div>`;
 			main.innerHTML += card;
-			console.log('cat =>', cat)
+			// console.log('cat =>', cat)
 		}
 	});
 
@@ -22,8 +26,23 @@ const updCards = function (data) {
 	}
 
 };
-updCards(cats)
 
+/** функция в которую передаем наш api */
+const getCats = function (api) {
+	api
+		.getCats()
+		.then((res) => res.json())
+		.then((data) => {
+			console.log('data from getCats.Then >>', data)
+			if (data.message === 'ok') {
+				updCards(data.data)
+			}
+		})
+
+}
+getCats(api);
+
+/** берем форму добавления котиков поле адрес фото кота */
 let form = document.querySelector('.form');
 form.img_link.addEventListener("change", (e) => {
 	form.firstElementChild.style.backgroundImage = `url(${e.target.value})`
@@ -32,6 +51,8 @@ form.img_link.addEventListener("input", (e) => {
 
 	form.firstElementChild.style.backgroundImage = `url(${e.target.value})`
 })
+
+
 
 /** hendler на форме popup добавления котов */
 form.addEventListener("submit", e => {
@@ -49,10 +70,23 @@ form.addEventListener("submit", e => {
 			}
 		}
 	}
-	cats.push(body)
-	updCards(cats)
-	closeFormAfterAddCat()
-	form.reset()
+	console.log('result body >>', body)
+
+	/** Рбота с Api */
+	api
+		.addCat(body)
+		.then((res) => res.json())
+		.then((data) => {
+			if (data.message === 'ok') {
+				form.reset()
+				closePopupFormEl.click()
+				getCats(api);
+
+			} else {
+				console.log('from work with api else >> ', data)
+			}
+		})
+
 
 })
 
@@ -76,9 +110,12 @@ closePopupFormEl.addEventListener("click", function (event) {
 
 });
 
-function closeFormAfterAddCat() {
-	popupEL.classList.remove("popup_active");
-}
+
+
+
+
+
+
 
 
 

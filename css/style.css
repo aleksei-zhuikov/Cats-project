@@ -4,7 +4,6 @@
 @import "./_fonts.css";
 @import "./_variables.css";
 @import "./_globalRes.css";
-@import "./_general.css";
 
 /* components imports */
 @import "./components/_body.css";
