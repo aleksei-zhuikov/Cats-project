@@ -116,11 +116,6 @@ form.addEventListener("submit", e => {
 
 /** Открываем закрываем popup */
 
-const addBtnEl = document.getElementById("add");
-const popupEL = document.querySelector(".popup");
-const closePopupFormEl = document.querySelector(".popup__close");
-const btnFormAddCat = document.querySelector(".form__btn");
-
 addBtnEl.addEventListener("click", function (event) {
 	// event.preventDefault();
 
