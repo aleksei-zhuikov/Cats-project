@@ -10,7 +10,7 @@ const updCards = function (data) {
 		// console.log('cat from updCards =>', cat)
 		if (cat.id) {
 			let card = `<div class="${cat.favourite ? "card like" : "card"}"
-			style="background-image: url(${cat.img_link || "img/cats-default-2.jpeg"})">
+			style="background-image: url(${cat.img_link || "img/cats-default-2.jpeg"})" data-catid = ${cat.id}>
 				<span>${cat.name}</span>
 				</div>`;
 			main.innerHTML += card;
@@ -116,6 +116,7 @@ const btnEnter = document.querySelector('#btn-enter');
 const formLogin = document.querySelector('#form-login');
 const closeFormLogin = document.querySelector('.btn-close_login')
 
+
 btnEnter.addEventListener('click', function (evt) {
 	// ищем ближайшего предка, подходящего под указанный CSS-селектор
 	// и сохраняем его в переменную.
@@ -147,6 +148,7 @@ const defaultHello = 'Выполните вход';
 defaultHelloTxtEL.innerHTML = defaultHello;
 let userName = '';
 let userEmail = '';
+
 
 btnEntryFormLogin.addEventListener('click', function (evt) {
 	evt.preventDefault()
