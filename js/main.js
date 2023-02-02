@@ -10,7 +10,7 @@ const updCards = function (data) {
 		// console.log('cat from updCards =>', cat)
 		if (cat.id) {
 			let card = `<div class="${cat.favourite ? "card like" : "card"}"
-			style="background-image: url(${cat.img_link || "img/cats-default-2.jpeg"})" data-catid = ${cat.id}>
+			style="background-image: url(${cat.img_link || "img/cats-default-2.jpeg"})" id="${cat.id}">
 				<span>${cat.name}</span>
 				</div>`;
 			main.innerHTML += card;
@@ -27,10 +27,44 @@ const updCards = function (data) {
 		// ====== Информация о коте popup =====
 
 		cards[i].addEventListener('click', (e) => {
-			console.log(cards[i]);
-		})
-	}
+			const popupCard = document.querySelector('#popup-card');
+			// console.log('cards[i] - id >>', cards[i].id)
+			let kitty = catsData.filter((e) => { return e.id == cards[i].id })
+			// console.log(kitty)
 
+			if (!popupCard.classList.contains("popup_active")) {
+				popupCard.classList.add("popup_active");
+
+				popupCard.innerHTML = '';
+
+				let popupCardInfoCat = `
+				<div class="popup__container">
+					<h2 class="popup__title">Информация о котике</h2>
+					<button class="popup__close btn-cancel__infocat btn btn-reset btn-close">
+						<i class="fa-solid fa-xmark"></i>
+					</button>
+					<div class="wrapper-info-cat">
+						<div class="form-img">
+							<img src="${kitty[0].img_link}" alt="cat">
+						</div>
+						<div>ID: ${kitty[0].id}</div>
+						<div>Возраст: ${kitty[0].age}</div>
+						<div>Имя: ${kitty[0].name}</div>
+						<div>Рейтинг: ${kitty[0].rate}</div>
+						<div>Описание: ${kitty[0].description}</div>
+						<div>Любимчик: ${kitty[0].favourite}</div>
+					</div>
+				</div>`;
+
+				popupCard.innerHTML += popupCardInfoCat;
+			}
+
+			const btnCancelinfoCat = document.querySelector('.btn-cancel__infocat');
+			btnCancelinfoCat.addEventListener('click', () => {
+				popupCard.classList.remove("popup_active")
+			})
+		});
+	}
 };
 
 /** Проверяем LocalStorage и Добавляем котов из api   */
