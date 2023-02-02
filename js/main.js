@@ -169,8 +169,7 @@ defaultHelloTxtEL.innerHTML = defaultHello;
 let userName = '';
 let userEmail = '';
 
-
-btnEntryFormLogin.addEventListener('click', function (evt) {
+formLogin.addEventListener('submit', function (evt) {
 	evt.preventDefault()
 
 	/** добавляем куки в переменные */
@@ -182,11 +181,12 @@ btnEntryFormLogin.addEventListener('click', function (evt) {
 
 
 	/** проверяем установились ли куки с нужным значением */
-	if (!document.cookie.split(';').filter((item) => item.includes(`userName=${userName}`)).length) {
+	if (document.cookie.split(';').filter((item) => item.includes(`userName=${userName}`)).length) {
 		console.log(`The cookie "reader" has ${userName} for value`)
+
 		addBtnEl.classList.remove("visually-hidden")
+		helloUser(userName)
 	}
-	helloUser(userName)
 
 
 })
@@ -227,6 +227,9 @@ logOut.addEventListener('click', function () {
 
 		byeUser()
 	}
+	/** очищаем переменые в которых лежали значения передаваемые в куки */
+	userName = '';
+	userEmail = '';
 
 })
 
