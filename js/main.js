@@ -54,6 +54,10 @@ const updCards = function (data) {
 						<div>Описание: ${kitty[0].description}</div>
 						<div>Любимчик: ${kitty[0].favourite}</div>
 					</div>
+					<div>
+						<button class="delete-cat">удалить</button>
+						<button>править</button>
+					</div>
 				</div>`;
 
 				popupCard.innerHTML += popupCardInfoCat;
