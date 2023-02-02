@@ -78,6 +78,7 @@ const updCards = function (data) {
 								popupCard.classList.remove("popup_active")
 								localStorage.clear()
 								alert('вы удаляете кота')
+								window.location.reload()
 								api.getCat()
 								getCats(api)
 
