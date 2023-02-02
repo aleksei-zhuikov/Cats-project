@@ -117,7 +117,7 @@ form.addEventListener("submit", e => {
 /** Открываем закрываем popup */
 
 addBtnEl.addEventListener("click", function (event) {
-	// event.preventDefault();
+	event.preventDefault();
 
 	if (!popupEL.classList.contains("popup_active")) {
 		popupEL.classList.add("popup_active");
@@ -155,6 +155,7 @@ closeFormLogin.addEventListener('click', function () {
 	formLogin.reset()
 })
 
+
 /** Работа с куки */
 
 /** добавляем куки */
@@ -181,11 +182,11 @@ btnEntryFormLogin.addEventListener('click', function (evt) {
 
 
 	/** проверяем установились ли куки с нужным значением */
-	if (document.cookie.split(';').filter((item) => item.includes(`userName=${userName}`)).length) {
+	if (!document.cookie.split(';').filter((item) => item.includes(`userName=${userName}`)).length) {
 		console.log(`The cookie "reader" has ${userName} for value`)
 		addBtnEl.classList.remove("visually-hidden")
-		helloUser(userName)
 	}
+	helloUser(userName)
 
 
 })
