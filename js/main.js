@@ -47,7 +47,7 @@ const updCards = function (data) {
 						<div class="form-img">
 							<img src="${kitty[0].img_link}" alt="cat">
 						</div>
-						<div>ID: ${kitty[0].id}</div>
+						<div class="cats-id">ID: ${kitty[0].id}</div>
 						<div>Возраст: ${kitty[0].age}</div>
 						<div>Имя: ${kitty[0].name}</div>
 						<div>Рейтинг: ${kitty[0].rate}</div>
@@ -61,15 +61,46 @@ const updCards = function (data) {
 				</div>`;
 
 				popupCard.innerHTML += popupCardInfoCat;
+
+				//=====
+				const btnDeleteCat = document.querySelector('.delete-cat')
+				// console.log('кнопка удаления кота >>', btnDeleteCat)
+
+				btnDeleteCat.addEventListener('click', function () {
+
+					let resCatId = `${kitty[0].id}`
+					api
+						.delCat(resCatId)
+						.then((res) => res.json())
+						.then((data) => {
+							// console.log(data.data)
+							if (data.message === 'ok') {
+								popupCard.classList.remove("popup_active")
+								localStorage.clear()
+								alert('вы удаляете кота')
+								api.getCat()
+								getCats(api)
+
+
+							};
+
+						});
+
+				})
+
 			}
 
 			const btnCancelinfoCat = document.querySelector('.btn-cancel__infocat');
 			btnCancelinfoCat.addEventListener('click', () => {
 				popupCard.classList.remove("popup_active")
 			})
+
 		});
 	}
+
+
 };
+
 
 /** Проверяем LocalStorage и Добавляем котов из api   */
 
