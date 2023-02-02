@@ -23,6 +23,12 @@ const updCards = function (data) {
 	for (let i = 0, cnt = cards.length; i < cnt; i++) {
 		const width = cards[i].offsetWidth;
 		cards[i].style.height = width * 0.6 + "px";
+
+		// ====== Информация о коте popup =====
+
+		cards[i].addEventListener('click', (e) => {
+			console.log(cards[i]);
+		})
 	}
 
 };
@@ -160,15 +166,18 @@ closeFormLogin.addEventListener('click', function () {
 
 /** добавляем куки */
 
+// const _isLogin = false;
 const btnEntryFormLogin = document.querySelector('#btn-form-login');
 const logOut = document.querySelector('.user__unlog');
 let defaultHelloTxtEL = document.querySelector('.user__hello');
 const defaultHello = 'Выполните вход';
 
+
 defaultHelloTxtEL.innerHTML = defaultHello;
 let userName = '';
 let userEmail = '';
 
+/** вешаем слушатель на форму входа по submit при нажатии кнопки войти */
 formLogin.addEventListener('submit', function (evt) {
 	evt.preventDefault()
 
@@ -179,15 +188,15 @@ formLogin.addEventListener('submit', function (evt) {
 	document.cookie = `userName=${userName};max-age=86400;path=/`
 	document.cookie = `userEmail=${userEmail};max-age=86400;path=/`
 
-
 	/** проверяем установились ли куки с нужным значением */
 	if (document.cookie.split(';').filter((item) => item.includes(`userName=${userName}`)).length) {
 		console.log(`The cookie "reader" has ${userName} for value`)
 
 		addBtnEl.classList.remove("visually-hidden")
+		main.classList.add('pointer');
 		helloUser(userName)
-	}
 
+	}
 
 })
 
@@ -203,7 +212,6 @@ function helloUser(name) {
 	closeFormLogin.click()
 	formLogin.reset()
 
-
 }
 
 /** удаляем имя пользователя после выхода */
@@ -214,6 +222,7 @@ function byeUser() {
 	btnEnter.classList.remove('visually-hidden');
 	logOut.classList.add('visually-hidden');
 	addBtnEl.classList.add("visually-hidden");
+	main.classList.remove('pointer');
 
 }
 

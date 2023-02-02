@@ -13,7 +13,6 @@
 	cursor: pointer;
 }
 
-
 .card>* {
 	position: relative;
 	z-index: 2;

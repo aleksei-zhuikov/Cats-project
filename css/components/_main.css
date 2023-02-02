@@ -8,4 +8,10 @@
 	/* gap: 30px; */
 	gap: 20px;
 	min-height: calc(100vh - 240px);
+	pointer-events: none;
+}
+
+.pointer {
+	cursor: pointer;
+	pointer-events: auto;
 }
